@@ -33,4 +33,45 @@ router.post('/', (req, res)=> {
     });
 });
 
+router.patch('/:id', (req, res) => {
+    var id = req.params.id;
+    var body = _.pick(req.body, ['empresa', 'cargo','puesto','lugar','aptitudes','funciones']);
+
+    if (!ObjectID.isValid(id)) {
+      return res.status(404).send();
+    }
+
+    Puesto.findByIdAndUpdate(id, {$set: body}, {new: true}).then((puesto) => {
+        if(!puesto) {
+            return res.status(404).send();
+        }
+
+        Puesto.findById(id).then((puesto) => {
+          res.send(puesto);
+        });
+        //res.send(equipo);
+    }).catch((e) => {
+        res.status(400).send();
+    })
+});
+
+router.delete('/:id', (req, res) => {
+    var id = req.params.id;
+
+    if(!ObjectID.isValid(id)) {
+        return res.status(404).send();
+    }
+
+    Puesto.findByIdAndRemove(id).then((puesto)=> {
+        if(!puesto) {
+            return res.status(404).send();
+        }
+
+        res.send(puesto);
+    }).catch((e) => {
+        res.status(400).send();
+    });
+});
+
+
 module.exports = router;
