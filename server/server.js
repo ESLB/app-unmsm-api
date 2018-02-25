@@ -33,7 +33,7 @@ app.use('/retos', retos);
 app.use('/solicitudes', solicitudes);
 app.use('/login', login);
 app.use('/puestos', puesto);
-app.use('./eventos', evento);
+app.use('/eventos', evento);
 
 //SERVIDOR
 const port = process.env.PORT || 3000;
