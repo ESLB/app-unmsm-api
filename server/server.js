@@ -9,7 +9,7 @@ var {Jugador} = require('./models/jugador');
 var {Equipo} = require('./models/equipo');
 var {Solicitud} = require('./models/solicitud');
 var {Reto} = require('./models/reto');
-var {Puesto} = requier('./models/puestoTrabajo');
+var {Puesto} = require('./models/puestoTrabajo');
 
 //CARGAR RUTAS
 const todos = require('./routes/todos');
