@@ -13,5 +13,24 @@ router.get('/', (req, res) =>{
     });
 });
 
+router.post('/', (req, res)=> {
+    var puesto = new Puesto({
+        empresa: req.body.empresa,
+        cargo: req.body.cargo,
+        puesto: req.body.puesto,
+        lugar: req.body.lugar,
+        aptitudes: req.body.aptitudes,
+        funciones: req.body.funciones
+    });
+    puesto.save().then((doc)=>{
+        var id = _.pick(doc, ['_id']);
+        Puesto.findById(id).then((puesto) => {
+          res.send(puesto);
+        });
+        //res.send(doc);
+    }, (e) => {
+        res.status(400).send(e);
+    });
+});
 
 module.exports = router;
