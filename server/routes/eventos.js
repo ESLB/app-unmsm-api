@@ -21,6 +21,7 @@ router.post('/', (req, res)=> {
         organizador: req.body.organizador,
         fecha: req.body.fecha,
         lugar: req.body.lugar,
+        tipo: req.body.tipo,
         descripcion: req.body.descripcion
 
     });
@@ -37,7 +38,7 @@ router.post('/', (req, res)=> {
 
 router.patch('/:id', (req, res) => {
     var id = req.params.id;
-    var body = _.pick(req.body, ['nombre', 'precio','modalidadPago','organizador','fecha','lugar','lugar','descripcion']);
+    var body = _.pick(req.body, ['nombre', 'precio','modalidadPago','organizador', 'tipo','fecha','lugar','lugar','descripcion']);
 
     if (!ObjectID.isValid(id)) {
       return res.status(404).send();

@@ -36,6 +36,12 @@ var EventoSchema = new Schema({
     minlength: 1,
     trim: true
   },
+  tipo:{
+    type: String,
+    required: true,
+    minlength: 1,
+    trim: true
+  },
   descripcion:{
     type: String,
     required: true,
