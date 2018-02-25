@@ -49,4 +49,4 @@ var EventoSchema = new Schema({
   }
 });
 
-mongoose.model('eventos', PuestoTrabajoSchema, 'eventos');
+mongoose.model('eventos', EventoSchema, 'eventos');
