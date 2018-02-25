@@ -26,7 +26,7 @@ router.post('/', (req, res)=> {
     });
     evento.save().then((doc)=>{
         var id = _.pick(doc, ['_id']);
-        Puesto.findById(id).then((evento) => {
+        Evento.findById(id).then((evento) => {
           res.send(evento);
         });
         //res.send(doc);
@@ -48,7 +48,7 @@ router.patch('/:id', (req, res) => {
             return res.status(404).send();
         }
 
-        Puesto.findById(id).then((evento) => {
+        Evento.findById(id).then((evento) => {
           res.send(evento);
         });
         //res.send(equipo);
