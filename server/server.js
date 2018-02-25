@@ -10,6 +10,7 @@ var {Equipo} = require('./models/equipo');
 var {Solicitud} = require('./models/solicitud');
 var {Reto} = require('./models/reto');
 var {Puesto} = require('./models/puestoTrabajo');
+var {Evento} = require('./models/evento');
 
 //CARGAR RUTAS
 const todos = require('./routes/todos');
@@ -19,6 +20,7 @@ const retos = require('./routes/retos');
 const solicitudes = require('./routes/solicitudes');
 const login = require('./routes/login');
 const puesto = require('./routes/puestosTrabajo');
+const evento = require('./routes/eventos');
 
 var app = express();
 app.use(bodyParser.json());
@@ -31,6 +33,7 @@ app.use('/retos', retos);
 app.use('/solicitudes', solicitudes);
 app.use('/login', login);
 app.use('/puestos', puesto);
+app.use('./eventos', evento);
 
 //SERVIDOR
 const port = process.env.PORT || 3000;
